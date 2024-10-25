@@ -1,0 +1,158 @@
+---
+title: Terminology
+description: Terms used in the Mee documentation.
+---
+
+## Agent SDK
+
+A software development kit that (i) provides the core logic of an [identity agent](#identity-agent) and (ii) enables a [local app](#local-app) to become interoperable with the [Mee Data Network](#mee-data-network). The [agent SDK](#agent-sdk) manages [personal data](#personal-data) that may be (i) created from the user's data entry into their [identity-agent](#identity-agent) (ii) created by an [app](#app) (or co-created by an [app](#app) during interactions with the user) or (iii) received over the [Mee Data Network](#mee-data-network) from another [identity agent](#identity-agent).
+
+## Agent Service
+
+A multi-user, web service that enables a [web app](#web-app) to become interoperable with the [Mee Data Network](#mee-data-network). The [agent service](#agent-service) manages [personal data](#personal-data) that may be (i) created by the user entering data into their [identity-agent](#identity-agent) (ii) created by an app (or co-created by the app during interactions with the user) or (iii) received over the [Mee Data Network](#mee-data-network) from another [identity-agent](#identity-agent).
+
+## App
+
+A [service provider application](#service-provider-application) or an another user's [identity-agent](#identity-agent) that communicates with this user's [identity-agent](#identity-agent).
+
+## Claim
+
+An assertion made about a [subject](#subject) in a [context](#context). [Claims](#claim) have types (e.g. given-name) and values (e.g. "Fred").
+
+## Connection
+
+A data sharing relationship between the user (represented by their [identity agent](#identity-agent)) and some other entity (represented by their [app](#app)).
+
+The user's [identity-agent](#identity-agent) manages a list of [connections](#connection) each one of which represents a data sharing communications channel with a different [app](#app). Data may flow through this channel periodically or continuously. It may flow from an [app](#app) to the [identity agent](#identity-agent), in the reverse direction, or in both directions. It flows using one or more data sharing [protocols](#protocol).
+
+Each connection is associated with exactly one [context](#context).
+
+## Connector
+
+A software plug-in to an [identity agent](#identity-agent) that that implements a communications protocol used by a [connection](#connection). A connector may receive data from an [app](#app), may store received data in a [context](#context), may read data from a [context](#context), and may transmit data to an [app](#app).
+
+## Context
+
+Each [context](#context) is associated with exactly one connection for which it acts as a data container. A [context](#context) contains entities that represent the user [subject](#subject) and may, in social contexts, contain other [subjects](#subject).
+
+If the [self](#self) represents a holistic representation of the user, a context represents the single context-dependent subset of that [self](#self) that involved in a [connection](#connection) with another entity (or more precisely the [app](#app) representing that entity).
+
+### Local Context
+
+A [context](#context) whose associated [subjects](#subject) have an identifier, and a set of [claims](#claim) whose values are stored permanently.
+
+### Virtual Context
+
+A [context](#context) whose associated [subjects](#subject) have an identifier, and a set of [claims](#claim) without values. [Claim](#claim) values, when needed, may be fetched from the [app](#app).
+
+## Identity Agent
+
+An [identity-agent](#identity-agent) is a software program that represents the user on the internet. It manages [personal data](#personal-data) about the user in their interactions with [apps](#app). Depending on the whether the agent is a [virtual agent](#virtual-agent) or a [local agent](#local-agent), this information may be stored within an [app](#app), and/or on-device, and/or by a third-party storage provider service.
+
+An [identity agent](#identity-agent):
+
+- Supports [connections](#connection) with [relying parties](#relying-party) wherein information can be updated over time.
+- Supports [identity agent](#identity-agent)-to- [identity agent](#identity-agent) messaging with minimal reliance on intermediary cloud-based services.
+- Is compatible with the [Mee Data Network](#mee-data-network). This network allows the user to license their [personal data](#personal-data) to a [service provider's](#service-provider) [app](#app) under the terms of the [MDN License](#mdn-license) data sharing agreement.
+
+## Local App
+
+An [app](#app) that runs on the user's local devices (e.g. smartphone, tablet, or laptop)
+
+## Local Agent
+
+An [identity agent](#identity-agent) that runs on the user's local device(s) (e.g. smartphone, tablet, or laptop) either as a standalone application, a browser extension, or a combination of both.
+
+The state of a [local agent](#local-agent) may be replicated (i.e. copied and synchronized) across multiple [local agent](#local-agent) replicas. For example, a user could have an iOS [local agent](#local-agent) whose personal datastore state is replicated bidirectionally with their MacOS [local agent](#local-agent). This gives the user the convenience of being able to use any of their [local agents](#local-agent) in the confidence that each has the same state (e.g. the same set of connections, etc.).
+
+## Mee Browser Extension (MBX) <a name="mee-browser extension"></a>
+
+MBX is a browser extention that either (i) contains an embeded local agent deployed as a browser extension or (ii) communicates with a local agent on the same device. The browser extension may also include functions implementing the Global Privacy Control (https://globalprivacycontrol.org), third-party cookie deletion, and implementing [connections](#connection) to websites using web scraping/filling.
+
+## Mee Data Network (MDN) <a name="mee-data-network"></a>
+
+A network of [Mee-authorized](#mee-authorized) [apps](#apps), [identity agents](#identity-agent), and [Mee Browser eXtensions](#mee-browser-extension) that exchange [personal data](#personal-data) under the user's control. The [MDN](#mee-data-network) has exactly one [Mee Directory Service](#mee-directory-service).
+
+![def-mee-data-network](../../images/def-mee-data-network.png)
+
+## MDN License
+
+To operate on the [Mee Data Network](#mee-data-network) service providers must be authorized by the Mee Foundation and agree to the terms of the [MDN License](#mdn-license) agreement. This agreement licenses the user’s [personal data](#personal-data) to the [service provider](#service-provider) and states what they can and cannot do with it. For example, it requires the [service provider's](#service-provider) apps to get opt-in consent from the user before sharing/selling their data to other entities. It also requires that the [service provider's](#service-provider) apps implement MDN protocols so they can interoperate with the user’s [identity agent(s)](#identity-agent).
+
+## Mee-authorized
+
+[Mee-authorized](#mee-authorized) is an adjective applied to an [app](#app) wherein the user's [personal data](#personal-data) involved in a data sharing connection with this [app](#app) is subject to the terms of the [MDN License](#mdn-license). To be [Mee-authorized](#mee-authorized) an app may also have to adhere to a set of specific UI guidelines.
+
+## Mee-compatible
+
+[Mee-compatible](#mee-compatible) is an adjective applied to an [apps](#app) and [identity agents](#identity-agent) (which may or may not be on the [MDN](#mee-data-network).
+
+## Mee Directory Service
+
+A central directory service that maps [identity agent](#identity-agent) user ids to the user's [identity agent](#identity-agent).
+
+## Personal Data
+
+Information that identifies, relates to, or could reasonably be linked with the user or the user's household. This data include names, addresses, contact information, payment information, lists of friends, preferences, interests, medical records, etc.
+
+## Protocol
+
+A communications protocol used between an [identity agent](#identity-agent) and an [app](#app).
+
+## Relying Party (RP) <a name="relying-party"></a>
+
+A [subject](#subject) with which the user interacts using an _identity agent_. An [relying party](#relying-party) may be another user (of an [identity agent](#identity-agent)) or a service provider.
+
+![def-relying-party](../../images/def-relying-party.png)
+
+For example, in a [connection](#connection) between the user's [identity agent](#identity-agent) and an [app](#app), the [relying party](#relying-party) is the service provider that offers the [service provider application](#service-provider-application). If the [app](#app) is another user's [identity agent](#identity-agent), the [relying party](#relying-party) is this other user.
+
+## Self
+
+A singleton data container holding a single person entity that represents the holistic, [selfness](#selfness) of the user.
+
+## Self-hosted
+
+A resource that is hosted on servers that an individual user manages for themself.
+
+## Selfness
+
+The sameness of a person or a thing at all times or in all circumstances. The condition of being a single individual. The fact that a person or thing is itself and not something else. Individuality, personality.
+
+## Service Provider Application
+
+A website, web service, mobile, tablet, laptop or desktop provided by a service provider.
+
+## Subject
+
+A thing about which [claims](#claim) may be made.
+
+![definitions-subject](../../images/def-subject.png)
+
+### Corporation
+
+A [subject](#subject) that represents an incorporated legal entity.
+
+### Person
+
+A [subject](#subject) that represents a natural person.
+
+### Service Provider
+
+A [corporation](#corporation) that provides an [app](#app) for its users.
+
+### User
+
+The user of an [identity agent](#identity-agent) or [app](#app).
+
+## Virtual Agent
+
+A web-based [identity agent](#identity-agent). The Mee Foundation hosts a [virtual agent](#virtual-agent) at itsmee.org.
+
+## Web App
+
+A web-based [app](#app).
+
+## Whoness
+
+A distinct impression of a single person or thing presented to or perceived by others. A set of characteristics or a description that distinguishes one person or thing from other people or things.
