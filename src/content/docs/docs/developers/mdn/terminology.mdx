@@ -11,6 +11,8 @@ An application that allows the user to control their [Personal Data](#personal-d
 
 A software development kit that provides functionality needed to implement an [Agent App](#agent-app).
 
+## Capability NEW
+
 ## Claim
 
 An assertion made about a [subject](#subject) in a [context](#context). [Claims](#claim) have [types](#claim-type) (e.g. given-name) and values (e.g. "Fred").
@@ -29,19 +31,16 @@ Data may flow through Connection periodically or continuously. Direction of the 
 
 A set of [Claims](#claim) about a [Person](#person) in context of relationship with [Relying Party][#relying-party], identified by a [Context-scoped identity](#context-scoped identity). Identity Context is associated with exactly one [Connection](#connection).
 
-## Context-scoped identity NEW
+## Context-scoped Identity NEW
+
+## Delegated Claim
+
+A [Claim] of a specific [Identity Context](#identity-context) that has been conditionally shared with another [Identity Context](#identity-context). The conditions of the Claim Delegation are specified by the [Capability](#capability). It is required for the delegated claim to refer to the [User](#user) by the [Context-scoped Identity](#context-scoped-identity) associated with the specific context. In other words, if a claim is shared between context A and context B then in the context A it should refer to the user by the context-scoped identity associated with the context A. And in the context B it should refer to the user by the context-scoped identity associated with the context B. The [Identity Agent](#identity-agent) is responsible for performing substitution, resolution and routing of context-scoped identities.
 
 ## Identity Agent REWRITE
 
-NEW: Should be an abstract entity that acts on behalf of the user. A concrete instantiation of Identity Agent is Mee Data Network OR Mee Agent, if we decide to extract Mee agent into a separate entity.
+A part of [Mee Data Network](#mee-data-network) that is responsible for managing [Connections](#connection) between [Users](#user) and [Relying Parties](#relying-party).
 
-An [identity-agent](#identity-agent) is a software program that represents the user on the internet. It manages [personal data](#personal-data) about the user in their interactions with [apps](#app). Depending on the whether the agent is a [virtual agent](#virtual-agent) or a [local agent](#local-agent), this information may be stored within an [app](#app), and/or on-device, and/or by a third-party storage provider service.
-
-An [identity agent](#identity-agent):
-
-- Supports [connections](#connection) with [relying parties](#relying-party) wherein information can be updated over time.
-- Supports [identity agent](#identity-agent)-to- [identity agent](#identity-agent) messaging with minimal reliance on intermediary cloud-based services.
-- Is compatible with the [Mee Data Network](#mee-data-network). This network allows the user to license their [personal data](#personal-data) to a [service provider's](#service-provider) [app](#app) under the terms of the [MDN License](#mdn-license) data sharing agreement.
 
 ## Local App
 
@@ -95,7 +94,7 @@ A communications protocol used between a [User](#user) and a [Relying Party](#re
 
 ## Relying Party (RP) <a name="relying-party"></a>
 
-A [subject](#subject) with which the user interacts using an [Identity Agent](#identity-agent). Relying Party may be another [User](#user) or a [Service Provider](#service-provider).
+A [subject](#subject) with which the [User](#user) interacts using an [Identity Agent](#identity-agent). Relying Party may be another [User](#user) or a [Service Provider](#service-provider).
 
 ![def-relying-party](../../images/def-relying-party.png)
 
