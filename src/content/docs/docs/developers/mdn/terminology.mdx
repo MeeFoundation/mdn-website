@@ -21,7 +21,7 @@ An assertion made about a [subject](#subject) in a [context](#context). [Claims]
 
 ## Claim Type
 
-A type of the [Claim](#claim). Can be primitive or composite. An example of an assertion with a composite type: in assertion `&lt;person-1&gt; &lt;has-a-driver-license&gt; &lt;driver-license-1&gt;` the `driver-license-1` is a composite value. The details of Claim Type are to be specified.
+A type of the [Claim](#claim). Can be primitive or composite. An example of an assertion with a composite type: in assertion `&lt;person-1&gt; &lt;has-a-driver-license&gt; &lt;driver-license-1&gt;` the `driver-license-1` is a composite value. The details of claim types are to be specified.
 
 ## Connection
 
@@ -29,23 +29,11 @@ A data sharing relationship between a [Mee User](#mee-user) and a [Relying Party
 
 Data may flow through Connection periodically or continuously. Direction of the data flow is not specified; could be unidirectional or bidirectional.
 
-## Connector REWRITE
-
-A software plug-in to an [identity agent](#identity-agent) that that implements a communications protocol used by a [connection](#connection). A connector may receive data from an [app](#app), may store received data in a [context](#context), may read data from a [context](#context), and may transmit data to an [app](#app).
-
 ## Identity Context
 
 A set of [Claims](#claim) about a [Person](#person) in context of relationship with [Relying Party][#relying-party], identified by a [Context-scoped identity](#context-scoped identity). Identity Context is associated with exactly one [Connection](#connection).
 
 ## Context-scoped identity NEW
-
-### Local Context REMOVE
-
-A [context](#context) whose associated [subjects](#subject) have an identifier, and a set of [claims](#claim) whose values are stored permanently.
-
-### Virtual Context REMOVE
-
-A [context](#context) whose associated [subjects](#subject) have an identifier, and a set of [claims](#claim) without values. [Claim](#claim) values, when needed, may be fetched from the [app](#app).
 
 ## Identity Agent REWRITE
 
@@ -62,12 +50,6 @@ An [identity agent](#identity-agent):
 ## Local App FINE
 
 An [app](#app) that runs on the user's local devices (e.g. smartphone, tablet, or laptop)
-
-## Local Agent REMOVE
-
-An [identity agent](#identity-agent) that runs on the user's local device(s) (e.g. smartphone, tablet, or laptop) either as a standalone application, a browser extension, or a combination of both.
-
-The state of a [local agent](#local-agent) may be replicated (i.e. copied and synchronized) across multiple [local agent](#local-agent) replicas. For example, a user could have an iOS [local agent](#local-agent) whose personal datastore state is replicated bidirectionally with their MacOS [local agent](#local-agent). This gives the user the convenience of being able to use any of their [local agents](#local-agent) in the confidence that each has the same state (e.g. the same set of connections, etc.).
 
 ## Mee Browser Extension (MBX) <a name="mee-browser extension"></a> REWRITE
 
@@ -103,9 +85,9 @@ A central directory service that maps [identity agent](#identity-agent) user ids
 
 Information that identifies, relates to, or could reasonably be linked with the user or the user's household. This data include names, addresses, contact information, payment information, lists of friends, preferences, interests, medical records, etc.
 
-## Protocol REWRITE
+## Protocol
 
-A communications protocol used between an [identity agent](#identity-agent) and an [app](#app).
+A communications protocol used between a [Mee User](#mee-user) and a [Relying Party](#relying-party).
 
 ## Relying Party (RP) <a name="relying-party"></a> REWRITE
 
