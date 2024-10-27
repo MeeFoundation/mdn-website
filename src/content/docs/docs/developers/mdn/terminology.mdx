@@ -19,23 +19,19 @@ A [service provider application](#service-provider-application) or an another us
 
 An assertion made about a [subject](#subject) in a [context](#context). [Claims](#claim) have types (e.g. given-name) and values (e.g. "Fred").
 
-## Connection REWRITE
+## Connection
 
-A data sharing relationship between the user (represented by their [identity agent](#identity-agent)) and some other entity (represented by their [app](#app)).
+A data sharing relationship between a [Mee User](#mee-user) and a [Relying Party](#relying-party). The Connection represents a dedicated communication channel and is associated with exactly one [Identity Context](#identity-context). Multiple Connections may exist between the same [Mee User](#mee-user) and [Relying Party](#relying-party), provided each Connection is associated with its own unique [Identity Context](#identity-context). Connection operartes using one or more data sharing [protocols](#protocol). 
 
-The user's [identity-agent](#identity-agent) manages a list of [connections](#connection) each one of which represents a data sharing communications channel with a different [app](#app). Data may flow through this channel periodically or continuously. It may flow from an [app](#app) to the [identity agent](#identity-agent), in the reverse direction, or in both directions. It flows using one or more data sharing [protocols](#protocol).
-
-Each connection is associated with exactly one [context](#context).
+Data may flow through Connection periodically or continuously. Direction of the data flow is not specified; could be unidirectional or bidirectional.
 
 ## Connector REWRITE
 
 A software plug-in to an [identity agent](#identity-agent) that that implements a communications protocol used by a [connection](#connection). A connector may receive data from an [app](#app), may store received data in a [context](#context), may read data from a [context](#context), and may transmit data to an [app](#app).
 
-## Context REWRITE
+## Identity Context
 
-Each [context](#context) is associated with exactly one connection for which it acts as a data container. A [context](#context) contains entities that represent the user [subject](#subject) and may, in social contexts, contain other [subjects](#subject).
-
-If the [self](#self) represents a holistic representation of the user, a context represents the single context-dependent subset of that [self](#self) that involved in a [connection](#connection) with another entity (or more precisely the [app](#app) representing that entity).
+A set of [Claims](#claim) about a [Person](#person) in context of relationship with [Relying Party][#relying-party], identified by a [Context-scoped identity](#context-scoped identity). Identity Context is associated with exactly one [Connection](#connection).
 
 ## Context-scoped identity NEW
 
@@ -151,8 +147,8 @@ A [corporation](#corporation) that provides an [app](#app) for its users.
 
 ### User REWRITE
 
-The user of an [identity agent](#identity-agent) or [app](#app).
-
+OLD The user of an [identity agent](#identity-agent) or [app](#app).
+NEW 
 ## Virtual Agent REMOVE
 
 A web-based [identity agent](#identity-agent). The Mee Foundation hosts a [virtual agent](#virtual-agent) at itsmee.org.
