@@ -25,7 +25,7 @@ A type of the [Claim](#claim). Can be primitive or composite. An example of an a
 
 ## Connection
 
-A data sharing relationship between a [Mee User](#mee-user) and a [Relying Party](#relying-party). The Connection represents a dedicated communication channel and is associated with exactly one [Identity Context](#identity-context). Multiple Connections may exist between the same [Mee User](#mee-user) and [Relying Party](#relying-party), provided each Connection is associated with its own unique [Identity Context](#identity-context). Connection operates using one or more data sharing [protocols](#protocol). 
+A data sharing relationship between a [User](#user) and a [Relying Party](#relying-party). The Connection represents a dedicated communication channel and is associated with exactly one [Identity Context](#identity-context). Multiple Connections may exist between the same [User](#user) and [Relying Party](#relying-party), provided each Connection is associated with its own unique [Identity Context](#identity-context). Connection operates using one or more data sharing [protocols](#protocol). 
 
 Data may flow through Connection periodically or continuously. Direction of the data flow is not specified; could be unidirectional or bidirectional.
 
@@ -87,11 +87,11 @@ Information that identifies, relates to, or could reasonably be linked with the 
 
 ## Protocol
 
-A communications protocol used between a [Mee User](#mee-user) and a [Relying Party](#relying-party).
+A communications protocol used between a [User](#user) and a [Relying Party](#relying-party).
 
-## Relying Party (RP) <a name="relying-party"></a> REWRITE
+## Relying Party (RP) <a name="relying-party"></a>
 
-A [subject](#subject) with which the user interacts using an _identity agent_. An [relying party](#relying-party) may be another user (of an [identity agent](#identity-agent)) or a service provider.
+A [subject](#subject) with which the user interacts using an [Identity Agent](#identity-agent). Relying Party may be another [User](#user) or a [Service Provider](#service-provider).
 
 ![def-relying-party](../../images/def-relying-party.png)
 
@@ -103,7 +103,7 @@ A set of [Claims](#claim) about a single [Person](#person) that represents the h
 
 ## Self-hosted 
 
-A resource that is hosted on servers that an individual [Mee User](#mee-user) manages for themself.
+A resource that is hosted on servers that an individual [User](#user) manages for themself.
 
 ## Selfness
 
@@ -131,7 +131,7 @@ A [subject](#subject) that represents a natural person.
 
 A [corporation](#corporation) that provides an [app](#app) for its users.
 
-### Mee User
+### User
 
 A [Person](#person) with [Mee Identity](#mee-identity).
  
