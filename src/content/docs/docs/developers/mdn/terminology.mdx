@@ -23,7 +23,7 @@ A type of the [Claim](#claim). Can be primitive or composite. An example of an a
 
 ## Connection
 
-A data sharing relationship between a [User](#user) and a [Relying Party](#relying-party). The Connection represents a dedicated communication channel and is associated with exactly one [Identity Context](#identity-context). Multiple Connections may exist between the same [User](#user) and [Relying Party](#relying-party), provided each Connection is associated with its own unique [Identity Context](#identity-context). Connection operates using one or more data sharing [protocols](#protocol). 
+A data sharing relationship between a [User](#user) and a [Relying Party](#relying-party). The Connection represents a dedicated communication channel and is associated with exactly one [Identity Context](#identity-context). Multiple Connections may exist between the same [User](#user) and [Relying Party](#relying-party), provided each Connection is associated with its own unique [Identity Context](#identity-context). A Connection operates using one or more data sharing [protocols](#protocol). 
 
 Data may flow through Connection periodically or continuously. Direction of the data flow is not specified; could be unidirectional or bidirectional.
 
@@ -31,7 +31,9 @@ Data may flow through Connection periodically or continuously. Direction of the 
 
 A set of [Claims](#claim) about a [Person](#person) in context of relationship with [Relying Party][#relying-party], identified by a [Context-scoped identity](#context-scoped identity). Identity Context is associated with exactly one [Connection](#connection).
 
-## Context-scoped Identity NEW
+## Context-scoped Identity
+
+Unique identifier of the [User](#user) associated with a specific [Identity Context](#identity-context). It is known only to the [Relying Party] of this [Identity Context] and to the [Identity Agent].
 
 ## Delegated Claim
 
