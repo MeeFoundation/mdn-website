@@ -39,10 +39,9 @@ Unique identifier of the [User](#user) associated with a specific [Identity Cont
 
 A [Claim] of a specific [Identity Context](#identity-context) that has been conditionally shared with another [Identity Context](#identity-context). The conditions of the Claim Delegation are specified by the [Capability](#capability). It is required for the delegated claim to refer to the [User](#user) by the [Context-scoped Identity](#context-scoped-identity) associated with the specific context. In other words, if a claim is shared between context A and context B then in the context A it should refer to the user by the context-scoped identity associated with the context A. And in the context B it should refer to the user by the context-scoped identity associated with the context B. The [Identity Agent](#identity-agent) is responsible for performing substitution and resolution of context-scoped identities.
 
-## Identity Agent REWRITE
+## Identity Agent
 
 A part of [Mee Data Network](#mee-data-network) that is responsible for managing [Connections](#connection) between [Users](#user) and [Relying Parties](#relying-party).
-
 
 ## Local App
 
@@ -58,7 +57,7 @@ MBX is a browser extention that either (i) contains an embeded local agent deplo
 
 ## Mee Data Network (MDN) <a name="mee-data-network"></a> REWRITE
 
-A network of [Mee-authorized](#mee-authorized) [apps](#apps), [identity agents](#identity-agent), and [Mee Browser eXtensions](#mee-browser-extension) that exchange [personal data](#personal-data) under the user's control. The [MDN](#mee-data-network) has exactly one [Mee Directory Service](#mee-directory-service).
+Mee Data Network is an instance of [Identity Agent](#identity-agent) together with the [MDN Nodes][#mdn-node] that are compatible with that specific [Identity Agent](#identity-agent).
 
 ![def-mee-data-network](../../images/def-mee-data-network.png)
 
@@ -73,10 +72,6 @@ An app that stores [Personal Data](#personal-data) of the [User](#user) and impl
 ## Mee-authorized
 
 [Mee-authorized](#mee-authorized) is an adjective applied to a [Service Provider App](#service-provider-app) wherein the user's [personal data](#personal-data) involved in a data sharing connection with this app is subject to the terms of the [MDN License](#mdn-license). To be [Mee-authorized](#mee-authorized) an app may also have to adhere to a set of specific UI guidelines.
-
-## Mee Directory Service REWRITE
-
-A central directory service that maps [identity agent](#identity-agent) user ids to the user's [identity agent](#identity-agent).
 
 ## Mee Identity
 
