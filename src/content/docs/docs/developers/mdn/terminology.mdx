@@ -3,6 +3,10 @@ title: Terminology
 description: Terms used in the Mee documentation.
 ---
 
+## Agent App
+
+An application that allows the user to control their [Personal Data](#personal-data) and [Identity Agent's](#identity-agent) behavior.
+
 ## Agent SDK REWRITE
 
 A software development kit that (i) provides the core logic of an [identity agent](#identity-agent) and (ii) enables a [local app](#local-app) to become interoperable with the [Mee Data Network](#mee-data-network). The [agent SDK](#agent-sdk) manages [personal data](#personal-data) that may be (i) created from the user's data entry into their [identity-agent](#identity-agent) (ii) created by an [app](#app) (or co-created by an [app](#app) during interactions with the user) or (iii) received over the [Mee Data Network](#mee-data-network) from another [identity agent](#identity-agent).
@@ -13,7 +17,7 @@ A multi-user, web service that enables a [web app](#web-app) to become interoper
 
 ## App REWRITE
 
-A [service provider application](#service-provider-application) or an another user's [identity-agent](#identity-agent) that communicates with this user's [identity-agent](#identity-agent).
+A [service provider application](#service-provider-application) or a .
 
 ## Claim
 
@@ -47,9 +51,13 @@ An [identity agent](#identity-agent):
 - Supports [identity agent](#identity-agent)-to- [identity agent](#identity-agent) messaging with minimal reliance on intermediary cloud-based services.
 - Is compatible with the [Mee Data Network](#mee-data-network). This network allows the user to license their [personal data](#personal-data) to a [service provider's](#service-provider) [app](#app) under the terms of the [MDN License](#mdn-license) data sharing agreement.
 
-## Local App FINE
+## Local App
 
 An [app](#app) that runs on the user's local devices (e.g. smartphone, tablet, or laptop)
+
+## MDN License REWRITE
+
+To operate on the [Mee Data Network](#mee-data-network) service providers must be authorized by the Mee Foundation and agree to the terms of the [MDN License](#mdn-license) agreement. This agreement licenses the user’s [personal data](#personal-data) to the [service provider](#service-provider) and states what they can and cannot do with it. For example, it requires the [service provider's](#service-provider) apps to get opt-in consent from the user before sharing/selling their data to other entities. It also requires that the [service provider's](#service-provider) apps implement MDN protocols so they can interoperate with the user’s [identity agent(s)](#identity-agent).
 
 ## Mee Browser Extension (MBX) <a name="mee-browser extension"></a> REWRITE
 
@@ -61,19 +69,17 @@ A network of [Mee-authorized](#mee-authorized) [apps](#apps), [identity agents](
 
 ![def-mee-data-network](../../images/def-mee-data-network.png)
 
-## MDN License REWRITE
+## Mee Smartwallet
 
-To operate on the [Mee Data Network](#mee-data-network) service providers must be authorized by the Mee Foundation and agree to the terms of the [MDN License](#mdn-license) agreement. This agreement licenses the user’s [personal data](#personal-data) to the [service provider](#service-provider) and states what they can and cannot do with it. For example, it requires the [service provider's](#service-provider) apps to get opt-in consent from the user before sharing/selling their data to other entities. It also requires that the [service provider's](#service-provider) apps implement MDN protocols so they can interoperate with the user’s [identity agent(s)](#identity-agent).
+An application that provides [Agent App](#agent-app) functionality and [MDN Node](#mdn-node) functionality in a form of [Local App](#local-app).
 
-# MDN Node NEW
+## MDN Node
 
-## Mee-authorized REWRITE
+An app that stores [Personal Data](#personal-data) of the [User](#user) and implements the set of protocols required to synchronize the data over [Mee Data Network](#mee-data-network). It could be hosted either by the [User](#user) or by [Service Provider](#service-provider). If the MDN Node is hosted by the [Service Provider](#service-provider) it must store only the data for the [Identity Contexts](#identity-context) associated with this [Service Provider](#service-provider) (the [Identity Contexts](#identity-context) where this [Service Provider](#service-provider) is a [Relying Party](#relying-party)). 
 
-[Mee-authorized](#mee-authorized) is an adjective applied to an [app](#app) wherein the user's [personal data](#personal-data) involved in a data sharing connection with this [app](#app) is subject to the terms of the [MDN License](#mdn-license). To be [Mee-authorized](#mee-authorized) an app may also have to adhere to a set of specific UI guidelines.
+## Mee-authorized
 
-## Mee-compatible REWRITE
-
-[Mee-compatible](#mee-compatible) is an adjective applied to an [apps](#app) and [identity agents](#identity-agent) (which may or may not be on the [MDN](#mee-data-network).
+[Mee-authorized](#mee-authorized) is an adjective applied to a [Service Provider App](#service-provider-app) wherein the user's [personal data](#personal-data) involved in a data sharing connection with this app is subject to the terms of the [MDN License](#mdn-license). To be [Mee-authorized](#mee-authorized) an app may also have to adhere to a set of specific UI guidelines.
 
 ## Mee Directory Service REWRITE
 
@@ -113,7 +119,7 @@ The sameness of a person or a thing at all times or in all circumstances. The co
 
 ## Service Provider Application 
 
-A website, web service, mobile, tablet, laptop, or desktop application provided by a [Service Provider](#service-provider).
+A website, web service, mobile, tablet, laptop, or desktop application provided by a [Service Provider](#service-provider). A Service Provider Application must provide an [MDN Node](#mdn-node) functionality.
 
 ## Subject
 
@@ -129,9 +135,9 @@ A [subject](#subject) that represents an incorporated legal entity.
 
 A [subject](#subject) that represents a natural person.
 
-### Service Provider REWRITE
+### Service Provider
 
-A [corporation](#corporation) that provides an [app](#app) for its users.
+A [corporation](#corporation) that provides a [Service Provider Application](#service-provider-application) for its users.
 
 ### User
 
