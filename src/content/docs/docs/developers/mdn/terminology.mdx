@@ -15,9 +15,13 @@ A multi-user, web service that enables a [web app](#web-app) to become interoper
 
 A [service provider application](#service-provider-application) or an another user's [identity-agent](#identity-agent) that communicates with this user's [identity-agent](#identity-agent).
 
-## Claim FINE
+## Claim
 
-An assertion made about a [subject](#subject) in a [context](#context). [Claims](#claim) have types (e.g. given-name) and values (e.g. "Fred").
+An assertion made about a [subject](#subject) in a [context](#context). [Claims](#claim) have [types](#claim-type) (e.g. given-name) and values (e.g. "Fred").
+
+## Claim Type
+
+A type of the [Claim](#claim). Can be primitive or composite. An example of an assertion with a composite type: in assertion `&lt;person-1&gt; &lt;has-a-driver-license&gt; &lt;driver-license-1&gt;` the `driver-license-1` is a composite value. The details of Claim Type are to be specified.
 
 ## Connection
 
@@ -125,7 +129,7 @@ The sameness of a person or a thing at all times or in all circumstances. The co
 
 ## Service Provider Application 
 
-A website, web service, mobile, tablet, laptop, or desktop application provided by a service provider.
+A website, web service, mobile, tablet, laptop, or desktop application provided by a [Service Provider](#service-provider).
 
 ## Subject
 
