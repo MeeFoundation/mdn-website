@@ -2,51 +2,119 @@
 import Layout from "@layouts/Layout.astro";
 import { Header, Footer } from "mee-components";
 import { header, footer } from "../../astro.config.mjs";
+import streamlinedExperience from "../../public/images/streamlined-experience.svg";
+import yourRightsProtected from "../../public/images/your-rights-protected.svg";
+import controlYourData from "../../public/images/control-your-data.svg";
+import yourActivities from "../../public/images/your-activities.svg";
+
+const futures = [
+  {
+    image: streamlinedExperience,
+    title: "Smoother, more streamlined experience",
+    description:
+      "Less typing and tedium - forms are automatically filled using data from Mee-compatible apps/sites.",
+    class: "col-span-6",
+  },
+  {
+    image: yourActivities,
+    title: "Your activities are private–no more surveillance",
+    description:
+      "Your data is never shared/sold with/to any other company (including data brokers).",
+    class: "col-span-6",
+  },
+  {
+    image: controlYourData,
+    title: "Control your data",
+    description:
+      "You can exercise your legal right to control (access, edit, erase, or move) your own data wherever it is stored.",
+    class: "col-span-5",
+  },
+  {
+    image: yourRightsProtected,
+    title: "Your rights are protected",
+    description:
+      "The Mee Foundation acting on the user’s behalf - MDN License limits the collection, processing, and transfer of personal data to what is reasonably necessary and proportionate.",
+    class: "col-span-7",
+  },
+];
 ---
 
 <Layout title="Mee Data Network">
   <Header header={header} location="Mee Data Network" />
   <main class="w-screen overflow-hidden">
     <article
-      class="relative mt-27 flex h-full min-h-screen w-screen flex-col items-center justify-between gap-16 overflow-hidden"
+      class="relative mt-27 flex h-full w-screen flex-col items-center justify-between gap-8 overflow-hidden md:gap-16"
     >
       <section
-        class="section top-0 z-100 mb-3.5 mt-16 md:mt-25 flex h-full w-screen flex-col items-center justify-center"
+        class="section top-0 z-100 mt-10 flex h-full w-screen items-center justify-center md:mt-20"
       >
         <div
-          class="flex max-w-7xl flex-col items-center justify-center gap-4 px-6 transition-opacity duration-500 md:p-0"
+          class="flex max-w-5xl flex-col items-center justify-center gap-4 px-6 transition-opacity duration-500"
         >
           <div class="overflow-hidden">
             <h1
-              class="marker animate-riseIn text-center text-4xl font-semibold text-gray-900 lg:text-7xl lg:tracking-0.02"
+              class="marker animate-riseIn text-center text-4xl font-semibold text-grey-900 lg:text-7xl"
             >
               Mee Data Network
             </h1>
+          </div>
+
+          <div class="overflow-hidden">
+            <h3
+              class="text animation-delay-800 animate-riseIn text-pretty px-6 text-center text-xl text-grey-900 md:text-2xl"
+            >
+              Puts you in control of your personal data wherever it lives. Once
+              collected by an app/site, it can’t be shared with another app/site
+              without your consent. Your data is yours to use as you wish.
+            </h3>
           </div>
           <div class="overflow-hidden">
             <a
               class="animation-delay-800 block w-full animate-riseIn px-6 text-center text-xl leading-relaxed text-brand-600 underline md:text-2xl"
               href="/docs"
             >
-              Mee Data Network Docs <i class="bi bi-arrow-right"></i>
+              MDN Docs <i class="bi bi-arrow-right"></i>
             </a>
           </div>
         </div>
       </section>
-      <div><Footer footer={footer} mode="dark" /></div>
+      <section
+        class="flex h-auto max-w-7xl flex-col items-center justify-center px-6 pb-20"
+      >
+        <div class="overflow-hidden">
+          <div class="animate-riseIn">
+            <div
+              class="flex max-w-96 flex-wrap items-center justify-center gap-8 md:grid md:max-w-max md:grid-cols-12"
+            >
+              {
+                futures.map((future) => (
+                  <div
+                    class:list={[
+                      "h-full rounded-2xl border border-grey-300",
+                      future.class,
+                    ]}
+                  >
+                    <img
+                      src={future.image.src}
+                      class="w-full"
+                      alt={`${future.title}`}
+                    />
+                    <div class="flex flex-col gap-2 p-8 pt-0">
+                      <div class="flex items-center gap-2 text-left text-xl font-semibold text-grey-900 lg:text-2xl">
+                        {future.title}
+                      </div>
+                      <div class="text-sm text-grey-800 lg:text-base">
+                        {future.description}
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+      <Footer footer={footer} mode="dark" />
     </article>
   </main>
 </Layout>
-<style>
-  .bg-1 {
-    content: "";
-    position: absolute;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    min-height: 150vh;
-    height: 140%;
-    transform: translate3d(0, 0, 0);
-    z-index: 1;
-    width: 400vw;
-  }
-</style>
