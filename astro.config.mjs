@@ -6,8 +6,7 @@ import starlight from "@astrojs/starlight";
 export const site = "https://mdn.mee.foundation/";
 export const meeFoundation = "https://mee.foundation/";
 export const github = "https://github.com/MeeFoundation/mdn-website";
-export const discord =
-  "https://discord.com/channels/1275848491964436491/1275848492413223025";
+export const discord = "https://discord.gg/V4vC5zsZ";
 export const sharedConfig = {
   title: "Mee Data Network",
   logo: {
