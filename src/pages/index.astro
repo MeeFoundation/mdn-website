@@ -51,67 +51,57 @@ const futures = [
         <div
           class="flex max-w-5xl flex-col items-center justify-center gap-4 px-6 transition-opacity duration-500"
         >
-          <div class="overflow-hidden">
-            <h1
-              class="marker animate-riseIn text-center text-4xl font-semibold text-grey-900 lg:text-7xl"
-            >
-              Mee Data Network
-            </h1>
-          </div>
+          <h1
+            class="marker text-center text-4xl font-semibold text-grey-900 lg:text-7xl"
+          >
+            Mee Data Network
+          </h1>
 
-          <div class="overflow-hidden">
-            <h3
-              class="text animation-delay-800 animate-riseIn text-pretty px-6 text-center text-xl text-grey-900 md:text-2xl"
-            >
-              Puts you in control of your personal data wherever it lives. Once
-              collected by an app/site, it can’t be shared with another app/site
-              without your consent. Your data is yours to use as you wish.
-            </h3>
-          </div>
-          <div class="overflow-hidden">
-            <a
-              class="animation-delay-800 block w-full animate-riseIn px-6 text-center text-xl leading-relaxed text-brand-600 underline md:text-2xl"
-              href="/docs"
-            >
-              MDN Docs <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
+          <h3
+            class="text text-pretty px-6 text-center text-xl text-grey-900 md:text-2xl"
+          >
+            Puts you in control of your personal data wherever it lives. Once
+            collected by an app/site, it can’t be shared with another app/site
+            without your consent. Your data is yours to use as you wish.
+          </h3>
+          <a
+            class="block w-full px-6 text-center text-xl leading-relaxed text-brand-600 underline md:text-2xl"
+            href="/docs"
+          >
+            MDN Docs <i class="bi bi-arrow-right"></i>
+          </a>
         </div>
       </section>
       <section
         class="flex h-auto max-w-7xl flex-col items-center justify-center px-6 pb-20"
       >
-        <div class="overflow-hidden">
-          <div class="animate-riseIn">
-            <div
-              class="flex max-w-96 flex-wrap items-center justify-center gap-8 md:grid md:max-w-max md:grid-cols-12"
-            >
-              {
-                futures.map((future) => (
-                  <div
-                    class:list={[
-                      "h-full rounded-2xl border border-grey-300",
-                      future.class,
-                    ]}
-                  >
-                    <img
-                      src={future.image.src}
-                      class="w-full"
-                      alt={`${future.title}`}
-                    />
-                    <div class="flex flex-col gap-2 p-8 pt-0">
-                      <div class="flex items-center gap-2 text-left text-xl font-semibold text-grey-900 lg:text-2xl">
-                        {future.title}
-                      </div>
-                      <div class="text-sm text-grey-800 lg:text-base">
-                        {future.description}
-                      </div>
-                    </div>
+        <div
+          class="flex max-w-96 flex-wrap items-center justify-center gap-8 md:grid md:max-w-max md:grid-cols-12"
+        >
+          {
+            futures.map((future) => (
+              <div
+                class:list={[
+                  "h-full rounded-2xl border border-grey-300",
+                  future.class,
+                ]}
+              >
+                <img
+                  src={future.image.src}
+                  class="w-full"
+                  alt={`${future.title}`}
+                />
+                <div class="flex flex-col gap-2 p-8 pt-0">
+                  <div class="flex items-center gap-2 text-left text-xl font-semibold text-grey-900 lg:text-2xl">
+                    {future.title}
                   </div>
-                ))
-              }
-            </div>
-          </div>
+                  <div class="text-sm text-grey-800 lg:text-base">
+                    {future.description}
+                  </div>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </section>
       <Footer footer={footer} mode="dark" />
