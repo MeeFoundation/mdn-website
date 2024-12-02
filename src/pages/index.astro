@@ -2,14 +2,19 @@
 import Layout from "@layouts/Layout.astro";
 import { Header, Footer } from "mee-components";
 import { header, footer } from "../../astro.config.mjs";
-import streamlinedExperience from "../../public/images/streamlined-experience.svg";
-import yourRightsProtected from "../../public/images/your-rights-protected.svg";
-import controlYourData from "../../public/images/control-your-data.svg";
-import yourActivities from "../../public/images/your-activities.svg";
+import streamlinedExperience from "../../public/images/streamlined-experience.png";
+import streamlinedExperienceDark from "../../public/images/streamlined-experience-dark.png";
+import yourRightsProtected from "../../public/images/your-rights-protected.png";
+import yourRightsProtectedDark from "../../public/images/your-rights-protected-dark.png";
+import controlYourData from "../../public/images/control-your-data.png";
+import controlYourDataDark from "../../public/images/control-your-data-dark.png";
+import yourActivities from "../../public/images/your-activities.png";
+import yourActivitiesDark from "../../public/images/your-activities-dark.png";
 
 const futures = [
   {
     image: streamlinedExperience,
+    imageDark: streamlinedExperienceDark,
     title: "Smoother, more streamlined experience",
     description:
       "Less typing and tedium - forms are automatically filled using data from Mee-compatible apps/sites.",
@@ -17,6 +22,7 @@ const futures = [
   },
   {
     image: yourActivities,
+    imageDark: yourActivitiesDark,
     title: "Your activities are private–no more surveillance",
     description:
       "Your data is never shared/sold with/to any other company (including data brokers).",
@@ -24,6 +30,7 @@ const futures = [
   },
   {
     image: controlYourData,
+    imageDark: controlYourDataDark,
     title: "Control your data",
     description:
       "You can exercise your legal right to control (access, edit, erase, or move) your own data wherever it is stored.",
@@ -31,6 +38,7 @@ const futures = [
   },
   {
     image: yourRightsProtected,
+    imageDark: yourRightsProtectedDark,
     title: "Your rights are protected",
     description:
       "The Mee Foundation acting on the user’s behalf - MDN License limits the collection, processing, and transfer of personal data to what is reasonably necessary and proportionate.",
@@ -52,20 +60,20 @@ const futures = [
           class="flex max-w-5xl flex-col items-center justify-center gap-4 px-6 transition-opacity duration-500"
         >
           <h1
-            class="marker text-center text-4xl font-semibold text-grey-900 lg:text-7xl"
+            class="marker text-center text-4xl font-semibold text-grey-900 lg:text-7xl dark:text-grey-50"
           >
             Mee Data Network
           </h1>
 
           <h3
-            class="text text-pretty px-6 text-center text-xl text-grey-900 md:text-2xl"
+            class="text text-pretty px-6 text-center text-xl text-grey-900 md:text-2xl dark:text-grey-300"
           >
             Puts you in control of your personal data wherever it lives. Once
             collected by an app/site, it can’t be shared with another app/site
             without your consent. Your data is yours to use as you wish.
           </h3>
           <a
-            class="block w-full px-6 text-center text-xl leading-relaxed text-brand-600 underline md:text-2xl"
+            class="block w-full px-6 text-center text-xl leading-relaxed text-brand-600 underline md:text-2xl dark:text-brand-300"
             href="/docs"
           >
             MDN Docs <i class="bi bi-arrow-right"></i>
@@ -82,20 +90,25 @@ const futures = [
             futures.map((future) => (
               <div
                 class:list={[
-                  "h-full rounded-2xl border border-grey-300",
+                  "h-full rounded-2xl border border-grey-300 dark:border-grey-600",
                   future.class,
                 ]}
               >
                 <img
                   src={future.image.src}
-                  class="w-full"
+                  class="w-full dark:hidden"
+                  alt={`${future.title}`}
+                />
+                <img
+                  src={future.imageDark.src}
+                  class="hidden w-full dark:block"
                   alt={`${future.title}`}
                 />
                 <div class="flex flex-col gap-2 p-8 pt-0">
-                  <div class="flex items-center gap-2 text-left text-xl font-semibold text-grey-900 lg:text-2xl">
+                  <div class="flex items-center gap-2 text-left text-xl font-semibold text-grey-900 lg:text-2xl dark:text-grey-50">
                     {future.title}
                   </div>
-                  <div class="text-sm text-grey-800 lg:text-base">
+                  <div class="text-sm text-grey-800 lg:text-base dark:text-grey-300">
                     {future.description}
                   </div>
                 </div>
