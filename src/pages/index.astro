@@ -10,6 +10,10 @@ import controlYourData from "../../public/images/control-your-data.png";
 import controlYourDataDark from "../../public/images/control-your-data-dark.png";
 import yourActivities from "../../public/images/your-activities.png";
 import yourActivitiesDark from "../../public/images/your-activities-dark.png";
+import smartwallet from "../../public/images/smartwallet.png";
+import smartwalletDark from "../../public/images/smartwallet-dark.svg";
+import identityAgent from "../../public/images/identity-agent.png";
+import identityAgentDark from "../../public/images/identity-agent-dark.svg";
 
 const futures = [
   {
@@ -43,6 +47,24 @@ const futures = [
     description:
       "The Mee Foundation acting on the user’s behalf - MDN License limits the collection, processing, and transfer of personal data to what is reasonably necessary and proportionate.",
     class: "col-span-7",
+  },
+];
+const identityAgentApps = [
+  {
+    image: smartwallet,
+    imageDark: smartwalletDark,
+    link: "https://smartwallet.mee.foundation/",
+    title: "Mee Smartwallet",
+    description:
+      "Local Identity Agent that acts as a digital wallet as well as a “remote control” for the user’s personal data.",
+  },
+  {
+    image: identityAgent,
+    imageDark: identityAgentDark,
+    link: "https://itsmee.org/",
+    title: "Identity Agent",
+    description:
+      "Control your personal data held by digital service providers using  “virtual” Mee Identity Agent.",
   },
 ];
 ---
@@ -113,6 +135,61 @@ const futures = [
                   </div>
                 </div>
               </div>
+            ))
+          }
+        </div>
+      </section>
+      <section
+        class="section top-0 z-100 mt-10 flex h-full w-screen items-center justify-center md:mt-20"
+      >
+        <div
+          class="flex max-w-5xl flex-col items-center justify-center gap-4 px-6 transition-opacity duration-500"
+        >
+          <h2
+            class="marker text-center text-3xl font-semibold text-grey-900 lg:text-5xl dark:text-grey-50"
+          >
+            Check our vision of identity agent apps
+          </h2>
+
+          <h3
+            class="text text-pretty px-6 text-center text-xl text-grey-900 md:text-2xl dark:text-grey-300"
+          >
+            Mee represents you on the internet, putting you in control of your
+            personal information.
+          </h3>
+        </div>
+      </section>
+      <section
+        class="flex h-auto max-w-7xl flex-col items-center justify-center px-6 pb-20"
+      >
+        <div class="flex w-full flex-wrap items-center justify-center gap-8">
+          {
+            identityAgentApps.map((app) => (
+              <a
+                href={app.link}
+                class:list={[
+                  "relative max-w-140 rounded-2xl border border-grey-300 transition-all hover:border-brand-300 hover:shadow-3-strong dark:border-grey-600 dark:hover:bg-dark-hover-gradient",
+                ]}
+              >
+                <img
+                  src={app.image.src}
+                  class="w-full rounded-t-2xl dark:hidden"
+                  alt={`${app.title}`}
+                />
+                <img
+                  src={app.imageDark.src}
+                  class="hidden w-full rounded-t-2xl dark:block"
+                  alt={`${app.title}`}
+                />
+                <div class="flex flex-col gap-2 p-8 pt-0 dark:bg-grey-950 rounded-b-2xl">
+                  <div class="flex items-center gap-2 text-left text-xl font-semibold text-grey-900 lg:text-2xl dark:text-grey-50">
+                    {app.title}
+                  </div>
+                  <div class="text-sm text-grey-800 lg:text-base dark:text-grey-300">
+                    {app.description}
+                  </div>
+                </div>
+              </a>
             ))
           }
         </div>
