@@ -51,20 +51,20 @@ const futures = [
 ];
 const identityAgentApps = [
   {
+    image: identityAgent,
+    imageDark: identityAgentDark,
+    link: "https://itsmee.org/",
+    title: "Mee website",
+    description:
+      "On the Mee website, you can see your list of connections. Each connection represents your relationship with a Mee-compatible app or site. The website allows you to control sharing of information held by one app/site with another one. You can see the kinds of information held in each connection, you can edit some of this information, and you can choose to delete the connection and thereby delete the data held by the app/site. The Mee website acts as a “remote control” for your personal data.",
+  },
+  {
     image: smartwallet,
     imageDark: smartwalletDark,
     link: "https://smartwallet.mee.foundation/",
     title: "Mee Smartwallet",
     description:
-      "Local Identity Agent that acts as a digital wallet as well as a “remote control” for the user’s personal data.",
-  },
-  {
-    image: identityAgent,
-    imageDark: identityAgentDark,
-    link: "https://itsmee.org/",
-    title: "Identity Agent",
-    description:
-      "Control your personal data held by digital service providers using  “virtual” Mee Identity Agent.",
+      "As an optional part of the Mee Experience, we are developing a free Mee Smartwallet app for iOS and Android (support for desktop platforms is planned). This app stores your personal data on your device(s). Similar to the Mee website, it organizes this information into a set of connections. You can see this list of connections, review the personal data involved in each, and in the case of a connection to a Mee Data Network (MDN)-compatible app/site, you can edit this data and/or delete the connection, thereby deleting your data from the app/site",
   },
 ];
 ---
@@ -84,15 +84,13 @@ const identityAgentApps = [
           <h1
             class="marker text-center text-4xl font-semibold text-grey-900 lg:text-7xl dark:text-grey-50"
           >
-            Mee Data Network
+            The Mee Experience
           </h1>
 
           <h3
             class="text text-pretty px-6 text-center text-xl text-grey-900 md:text-2xl dark:text-grey-300"
           >
-            Puts you in control of your personal data wherever it lives. Once
-            collected by an app/site, it can’t be shared with another app/site
-            without your consent. Your data is yours to use as you wish.
+            Mee puts you in control of your personal data. Using the Mee website you can control how your data is managed by Mee-compatible apps and sites. These apps/sites are connected to your Mee account over the Mee Data Network (MDN).
           </h3>
           <a
             class="block w-full px-6 text-center text-xl leading-relaxed text-brand-600 underline md:text-2xl dark:text-brand-300"
@@ -148,14 +146,13 @@ const identityAgentApps = [
           <h2
             class="marker text-center text-3xl font-semibold text-grey-900 lg:text-5xl dark:text-grey-50"
           >
-            Check our vision of identity agent apps
+            End-user tools
           </h2>
 
           <h3
             class="text text-pretty px-6 text-center text-xl text-grey-900 md:text-2xl dark:text-grey-300"
           >
-            Mee represents you on the internet, putting you in control of your
-            personal information.
+            Use the Mee website to control any Mee-compatible app or site. Install our mobile app to maintain a local copy of your data.
           </h3>
         </div>
       </section>
