@@ -11,9 +11,9 @@ import controlYourDataDark from "../../public/images/control-your-data-dark.png"
 import yourActivities from "../../public/images/your-activities.png";
 import yourActivitiesDark from "../../public/images/your-activities-dark.png";
 import smartwallet from "../../public/images/smartwallet.png";
-import smartwalletDark from "../../public/images/smartwallet-dark.svg";
+import smartwalletDark from "../../public/images/smartwallet-dark.png";
 import identityAgent from "../../public/images/identity-agent.png";
-import identityAgentDark from "../../public/images/identity-agent-dark.svg";
+import identityAgentDark from "../../public/images/identity-agent-dark.png";
 
 const futures = [
   {
@@ -54,7 +54,10 @@ const identityAgentApps = [
     image: identityAgent,
     imageDark: identityAgentDark,
     link: "https://itsmee.org/",
-    title: "Mee website",
+    linkTitle: "Sign up",
+    imageClassName: "pr-6 md:pr-0",
+    title: "Mee web app",
+    className: "md:flex-row",
     description:
       "On the Mee website, you can see your list of connections. Each connection represents your relationship with a Mee-compatible app or site. The website allows you to control sharing of information held by one app/site with another one. You can see the kinds of information held in each connection, you can edit some of this information, and you can choose to delete the connection and thereby delete the data held by the app/site. The Mee website acts as a “remote control” for your personal data.",
   },
@@ -62,7 +65,9 @@ const identityAgentApps = [
     image: smartwallet,
     imageDark: smartwalletDark,
     link: "https://smartwallet.mee.foundation/",
+    linkTitle: "Get the Smartwallet",
     title: "Mee Smartwallet",
+    className: "md:flex-row-reverse",
     description:
       "As an optional part of the Mee Experience, we are developing a free Mee Smartwallet app for iOS and Android (support for desktop platforms is planned). This app stores your personal data on your device(s). Similar to the Mee website, it organizes this information into a set of connections. You can see this list of connections, review the personal data involved in each, and in the case of a connection to a Mee Data Network (MDN)-compatible app/site, you can edit this data and/or delete the connection, thereby deleting your data from the app/site",
   },
@@ -84,13 +89,15 @@ const identityAgentApps = [
           <h1
             class="marker text-center text-4xl font-semibold text-grey-900 lg:text-7xl dark:text-grey-50"
           >
-            The Mee Experience
+            Mee Data Network
           </h1>
 
           <h3
             class="text text-pretty px-6 text-center text-xl text-grey-900 md:text-2xl dark:text-grey-300"
           >
-            Mee puts you in control of your personal data. Using the Mee website you can control how your data is managed by Mee-compatible apps and sites. These apps/sites are connected to your Mee account over the Mee Data Network (MDN).
+            Puts you in control of your personal data wherever it lives. Once
+            collected by an app/site, it can’t be shared with another app/site
+            without your consent. Your data is yours to use as you wish.
           </h3>
           <a
             class="block w-full px-6 text-center text-xl leading-relaxed text-brand-600 underline md:text-2xl dark:text-brand-300"
@@ -141,7 +148,7 @@ const identityAgentApps = [
         class="section top-0 z-100 mt-10 flex h-full w-screen items-center justify-center md:mt-20"
       >
         <div
-          class="flex max-w-5xl flex-col items-center justify-center gap-4 px-6 transition-opacity duration-500"
+          class="flex max-w-3xl flex-col items-center justify-center gap-4 px-6 transition-opacity duration-500"
         >
           <h2
             class="marker text-center text-3xl font-semibold text-grey-900 lg:text-5xl dark:text-grey-50"
@@ -152,38 +159,51 @@ const identityAgentApps = [
           <h3
             class="text text-pretty px-6 text-center text-xl text-grey-900 md:text-2xl dark:text-grey-300"
           >
-            Use the Mee website to control any Mee-compatible app or site. Install our mobile app to maintain a local copy of your data.
+            Use the Mee website to control any Mee-compatible app or site.
+            Install our mobile app to maintain a local copy of your data.
           </h3>
         </div>
       </section>
       <section
         class="flex h-auto max-w-7xl flex-col items-center justify-center px-6 pb-20"
       >
-        <div class="flex w-full flex-wrap items-center justify-center gap-8">
+        <div class="flex w-full flex-col items-center justify-center gap-8">
           {
             identityAgentApps.map((app) => (
               <a
                 href={app.link}
                 class:list={[
-                  "relative max-w-140 rounded-2xl border border-grey-300 transition-all hover:border-brand-300 hover:shadow-3-strong dark:border-grey-600 dark:hover:bg-dark-hover-gradient",
+                  "flex flex-col items-center gap-2 rounded-2xl border border-grey-300 transition-all hover:border-brand-300 hover:shadow-3-strong dark:border-grey-600 dark:hover:bg-dark-hover-gradient",
+                  app.className,
                 ]}
               >
                 <img
                   src={app.image.src}
-                  class="w-full rounded-t-2xl dark:hidden"
+                  class:list={[
+                    "h-auto max-h-120 w-auto rounded-2xl dark:hidden",
+                    app.imageClassName,
+                  ]}
                   alt={`${app.title}`}
                 />
                 <img
                   src={app.imageDark.src}
-                  class="hidden w-full rounded-t-2xl dark:block"
+                  class:list={[
+                    "hidden h-auto max-h-120 w-auto rounded-2xl dark:block",
+                    app.imageClassName,
+                  ]}
                   alt={`${app.title}`}
                 />
-                <div class="flex flex-col gap-2 p-8 pt-0 dark:bg-grey-950 rounded-b-2xl">
-                  <div class="flex items-center gap-2 text-left text-xl font-semibold text-grey-900 lg:text-2xl dark:text-grey-50">
-                    {app.title}
+                <div class="flex flex-col gap-6 p-8">
+                  <div class="flex flex-col gap-2">
+                    <div class="flex items-center gap-2 text-left text-xl font-semibold text-grey-900 lg:text-2xl dark:text-grey-50">
+                      {app.title}
+                    </div>
+                    <div class="text-sm text-grey-800 lg:text-base dark:text-grey-300">
+                      {app.description}
+                    </div>
                   </div>
-                  <div class="text-sm text-grey-800 lg:text-base dark:text-grey-300">
-                    {app.description}
+                  <div class="flex w-full gap-2 text-left text-base leading-relaxed text-brand-600 underline dark:text-brand-300">
+                    {app.linkTitle} <i class="bi bi-arrow-right" />
                   </div>
                 </div>
               </a>
