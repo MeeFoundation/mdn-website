@@ -21,11 +21,11 @@ An assertion made about a [subject](#subject) in a [context](#identity-context).
 
 ## Claim Type
 
-A type of the [claim](#claim). It can be primitive or composite. An example of an assertion with a composite type: in assertion `&lt;person-1&gt; &lt;has-a-driver-license&gt; &lt;driver-license-1&gt;` the `driver-license-1` is a composite value. The details of claim types are to be specified.
+A type of the [claim](#claim). It can be primitive or composite. The details of claim types are to be specified.
 
 ## Connection
 
-A special type of [claim](#claim) that declares a data sharing relationship between a [user] and a [relying party](#relying-party). Always belongs to some [identity context](#identity-context). 
+A special type of [claim](#claim) that declares a data-sharing relationship between a [user](#user) and a [relying party](#relying-party). Always belongs to some [identity context](#identity-context). 
 
 ## Custodian Account
 
@@ -33,11 +33,11 @@ Account of a [user](#user) or a [service provider](#service-provider) who hosts 
 
 ## Context-scoped Identity
 
-Unique identifier of the [User](#user) associated with a specific [Identity Context](#identity-context). It is known only to the [Relying Party] of this [Identity Context] and to the [Identity Agent].
+Unique identifier of the [user](#user) associated with a specific [identity context](#identity-context). It is known only to the [relying party](#relying-party) of this [identity context](#identity-context) and to the [identity agent](#identity-agent).
 
 ## Delegated Claim
 
-A [claim] of a specific [identity context](#identity-context) that has been conditionally shared with another [identity context](#identity-context). The conditions of the claim delegation are specified by the [capability](#capability). It is required for the delegated claim to refer to the [user](#user) by the [context-scoped identity](#context-scoped-identity) associated with the specific context. In other words, if a claim is shared between context A and context B then in context A it should refer to the user by the context-scoped identity associated with context A. And in context B it should refer to the user by the context-scoped identity associated with context B. The [identity agent](#identity-agent) is responsible for performing substitution and resolution of context-scoped identities.
+A [claim](#claim) of a specific [identity context](#identity-context) that has been conditionally shared with another [identity context](#identity-context). The conditions of the claim delegation are specified by the [capability](#capability). It is required for the delegated claim to refer to the [user](#user) by the [context-scoped identity](#context-scoped-identity) associated with the specific context. In other words, if a claim is shared between context A and context B then in context A it should refer to the user by the context-scoped identity associated with context A. And in context B it should refer to the user by the context-scoped identity associated with context B. The [identity agent](#identity-agent) is responsible for performing substitution and resolution of context-scoped identities.
 
 ## Identity Agent
 
@@ -45,67 +45,59 @@ A part of [Mee data network](#mee-data-network) that is responsible for data sha
 
 ## Identity Context
 
-A set of [claims](#claim) about a [Person](#person) in context of relationship with [Relying Party][#relying-party], identified by a [Context-scoped identity](#context-scoped identity).
+A set of [claims](#claim) about a [person](#person) in the context of a relationship with [relying party][#relying-party] identified by a [context-scoped identity](#context-scoped identity).
 
 ## Local App
 
 An application that runs on the user's local devices (e.g. smartphone, tablet, or laptop)
 
-## MDN License REWRITE
+## MDN License
 
-To operate on the [Mee Data Network](#mee-data-network) service providers must be authorized by the Mee Foundation and agree to the terms of the [MDN License](#mdn-license) agreement. This agreement licenses the user’s [personal data](#personal-data) to the [service provider](#service-provider) and states what they can and cannot do with it. For example, it requires the [service provider's](#service-provider) apps to get opt-in consent from the user before sharing/selling their data to other entities. It also requires that the [service provider's](#service-provider) apps implement MDN protocols so they can interoperate with the user’s [identity agent(s)](#identity-agent).
-
-## Mee Browser Extension (MBX) <a name="mee-browser extension"></a> REWRITE
-
-MBX is a browser extention that either (i) contains an embedded local agent deployed as a browser extension or (ii) communicates with a local agent on the same device. The browser extension may also include functions implementing the Global Privacy Control (https://globalprivacycontrol.org), third-party cookie deletion, and implementing [connections](#connection) to websites using web scraping/filling.
+To operate on the [Mee data network](#mee-data-network) service providers must be authorized by the Mee Foundation and agree to the terms of the MDN License agreement. This agreement licenses the user’s [personal data](#personal-data) to the [service provider](#service-provider) and states what they can and cannot do with it. For example, it requires the [service provider's](#service-provider) apps to get opt-in consent from the user before sharing/selling their data to other entities. It also requires that the [service provider's](#service-provider) apps implement MDN protocols so they can interoperate with the [identity agent](#identity-agent).
 
 ## Mee Data Network (MDN) <a name="mee-data-network"></a> REWRITE
 
-Mee Data Network is an instance of [Identity Agent](#identity-agent) together with the [MDN Nodes][#mdn-node] that are compatible with that specific [Identity Agent](#identity-agent).
+Mee Data Network is an instance of [identity agent](#identity-agent) together with the [MDN nodes][#mdn-node] that are compatible with that specific [identity agent](#identity-agent).
 
 ![def-mee-data-network](../../images/def-mee-data-network.png)
 
 ## Mee Smartwallet
 
-A [Local App](#local-app) that provides [Agent App](#agent-app) functionality and [MDN Node](#mdn-node) functionality.
+A [local app](#local-app) that provides [agent app](#agent-app) functionality and [MDN node](#mdn-node) functionality.
 
 ## MDN Node
 
-An app that stores [Personal Data](#personal-data) of the [User](#user) and implements the set of protocols required to synchronize the data over [Mee Data Network](#mee-data-network). It could be hosted either by the [User](#user) or by [Service Provider](#service-provider). If the MDN Node is hosted by the [Service Provider](#service-provider) it must store only the data for the [Identity Contexts](#identity-context) associated with this [Service Provider](#service-provider) (the [Identity Contexts](#identity-context) where this [Service Provider](#service-provider) is a [Relying Party](#relying-party)). 
+An app that stores [personal data](#personal-data) of the [user](#user) and implements the set of protocols required to synchronize the data over [Mee data network](#mee-data-network). It could be hosted either by the [user](#user) or by [service provider](#service-provider). If the MDN node is hosted by the [service provider](#service-provider) it must store only the data for the [identity contexts](#identity-context) associated with this [service provider](#service-provider). 
 
 ## Mee-authorized
 
-[Mee-authorized](#mee-authorized) is an adjective applied to a [Service Provider App](#service-provider-app) wherein the user's [personal data](#personal-data) involved in a data sharing connection with this app is subject to the terms of the [MDN License](#mdn-license). To be [Mee-authorized](#mee-authorized) an app may also have to adhere to a set of specific UI guidelines.
+Mee-authorized is an adjective applied to a [service provider app](#service-provider-app) wherein the user's [personal data](#personal-data) involved in a data sharing connection with this app is subject to the terms of the [MDN license](#mdn-license). To be Mee-authorized an app may also have to adhere to specific UI guidelines.
 
 ## Mee Identity
 
-An account in the [Mee Data Network](#mee-data-network) with a unique identifier, together with the information needed to prove ownership of the account (e.g. email and password, or the key pair). Mee Identity is tied to the [Self](#self) of the [User](#user) and is known only to the [User](#user) and to the [Identity Agent](#identity-agent).
+An account in the [Mee data network](#mee-data-network) with a unique identifier, together with the information needed to prove ownership of the account (e.g. email and password, or the key pair). Mee identity is tied to the [self](#self) of the [user](#user) and is known only to the [user](#user) and to the [identity agent](#identity-agent).
 
-## Mee Web Agent
+## Mee Website
 
-A web-based [Agent App](#agent-app) that is hosted by Mee. It does not persist [Personal Data](#personal-data) of the [User](#user) and does not provide functionality of [MDN Node](#mdn-node).
+A web-based [agent app](#agent-app) that is hosted by Mee. It does not persist [personal data](#personal-data) of the [user](#user) and does not provide the functionality of [MDN node](#mdn-node).
 
 ## Personal Data
 
-Information that identifies, relates to, or could reasonably be linked with the user or the user's household. This data include names, addresses, contact information, payment information, lists of friends, preferences, interests, medical records, etc.
-
-## Protocol
-
-A communications protocol used between a [User](#user) and a [Relying Party](#relying-party).
+Information that identifies, relates to, or could reasonably be linked with the user or the user's household. This data includes names, addresses, contact information, payment information, lists of friends, preferences, interests, medical records, etc.
 
 ## Relying Party (RP) <a name="relying-party"></a>
 
-A [subject](#subject) with which the [user](#user) interacts using an [identity agent](#identity-agent). Relying party may be another [user](#user) (with [Mee identity](#mee-identity)), a [person](#person) (without [Mee identity](#mee-identity)), a [Service Provider](#service-provider) or another source of personal data.
+A [subject](#subject) with which the [user](#user) interacts using an [identity agent](#identity-agent). Relying party may be another [user](#user) (with [Mee identity](#mee-identity)), a [person](#person) (without [Mee identity](#mee-identity)), a [service provider](#service-provider) or another source of personal data.
 
 ![def-relying-party](../../images/def-relying-party.png)
 
 ## Self
 
-A set of [Claims](#claim) about a single [Person](#person) that represents the holistic [selfness](#selfness) of the [Person](#person) 
+A set of [claims](#claim) about a single [person](#person) that represents the holistic [selfness](#selfness) of the [person](#person) 
 
 ## Self-hosted 
 
-A resource that is hosted on servers that an individual [User](#user) manages for themself.
+A resource that is hosted on servers that an individual [user](#user) manages for themself.
 
 ## Selfness
 
@@ -113,11 +105,11 @@ The sameness of a person or a thing at all times or in all circumstances. The co
 
 ## Service Provider App
 
-A website, web service, mobile, tablet, laptop, or desktop application provided by a [Service Provider](#service-provider). A Service Provider App must provide an [MDN Node](#mdn-node) functionality.
+A website, web service, mobile, tablet, laptop, or desktop application provided by a [service provider](#service-provider). A service provider app must provide an [MDN node](#mdn-node) functionality.
 
 ## Service Provider App SDK
 
-A software development kit that enables a [Service Provider App](#service-provider-app) to communicate with [MDN Node](#mdn-node) hosted by the [Service Provider](#service-provider). 
+A software development kit that enables a [service provider app](#service-provider-app) to communicate with [MDN node](#mdn-node) hosted by the [service provider](#service-provider). 
 
 ## Subject
 
