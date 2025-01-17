@@ -5,31 +5,31 @@ description: Terms used in the Mee documentation.
 
 ## Agent App
 
-An application that allows the user to control their [Personal Data](#personal-data) and [Identity Agent's](#identity-agent) behavior. It could be [Mee Smartwallet](#mee-smartwallet) or [Mee Web Agent](#mee-web-agent).
+An application that allows the user to control their [personal data](#personal-data) and [identity agent's](#identity-agent) behavior. It could be [Mee Smartwallet](#mee-smartwallet) or [Mee website](#mee-website).
 
 ## Agent App SDK
 
-A software development kit that provides functionality needed to implement an [Agent App](#agent-app).
+A software development kit that provides the functionality needed to implement an [agent app](#agent-app).
 
-## Capability NEW
+## Capability
+
+A reference to a set of [claims](#claim) about a [subject](#subject) together with a set of access rights that defines what operations can be performed on that set of [claims](#claim). It's unforgeable and can only be obtained through legitimate means (e.g. [delegation](#delegated-claim)).
 
 ## Claim
 
-An assertion made about a [subject](#subject) in a [context](#context). [Claims](#claim) have [types](#claim-type) (e.g. given-name) and values (e.g. "Fred").
+An assertion made about a [subject](#subject) in a [context](#identity-context). [Claims](#claim) have [types](#claim-type) (e.g. given-name) and values (e.g. "Fred").
 
 ## Claim Type
 
-A type of the [Claim](#claim). Can be primitive or composite. An example of an assertion with a composite type: in assertion `&lt;person-1&gt; &lt;has-a-driver-license&gt; &lt;driver-license-1&gt;` the `driver-license-1` is a composite value. The details of claim types are to be specified.
+A type of the [claim](#claim). It can be primitive or composite. An example of an assertion with a composite type: in assertion `&lt;person-1&gt; &lt;has-a-driver-license&gt; &lt;driver-license-1&gt;` the `driver-license-1` is a composite value. The details of claim types are to be specified.
 
 ## Connection
 
-A data sharing relationship between a [User](#user) and a [Relying Party](#relying-party). The Connection represents a dedicated communication channel and is associated with exactly one [Identity Context](#identity-context). Multiple Connections may exist between the same [User](#user) and [Relying Party](#relying-party), provided each Connection is associated with its own unique [Identity Context](#identity-context). A Connection operates using one or more data sharing [protocols](#protocol). 
+A special type of [claim](#claim) that declares a data sharing relationship between a [user] and a [relying party](#relying-party). Always belongs to some [identity context](#identity-context). 
 
-Data may flow through Connection periodically or continuously. Direction of the data flow is not specified; could be unidirectional or bidirectional.
+## Custodian Account
 
-## Identity Context
-
-A set of [Claims](#claim) about a [Person](#person) in context of relationship with [Relying Party][#relying-party], identified by a [Context-scoped identity](#context-scoped identity). Identity Context is associated with exactly one [Connection](#connection).
+Account of a [user](#user) or a [service provider](#service-provider) who hosts an [MDN node](#mdn-node) and is responsible for making the [personal data](#personal-data) of a [user](#user) available to other participants of [Mee data network](#mee-data-network) (other [MDN nodes](#mdn-node)), with respect to specified [capabilities](#capability). 
 
 ## Context-scoped Identity
 
@@ -37,11 +37,15 @@ Unique identifier of the [User](#user) associated with a specific [Identity Cont
 
 ## Delegated Claim
 
-A [Claim] of a specific [Identity Context](#identity-context) that has been conditionally shared with another [Identity Context](#identity-context). The conditions of the Claim Delegation are specified by the [Capability](#capability). It is required for the delegated claim to refer to the [User](#user) by the [Context-scoped Identity](#context-scoped-identity) associated with the specific context. In other words, if a claim is shared between context A and context B then in the context A it should refer to the user by the context-scoped identity associated with the context A. And in the context B it should refer to the user by the context-scoped identity associated with the context B. The [Identity Agent](#identity-agent) is responsible for performing substitution and resolution of context-scoped identities.
+A [claim] of a specific [identity context](#identity-context) that has been conditionally shared with another [identity context](#identity-context). The conditions of the claim delegation are specified by the [capability](#capability). It is required for the delegated claim to refer to the [user](#user) by the [context-scoped identity](#context-scoped-identity) associated with the specific context. In other words, if a claim is shared between context A and context B then in context A it should refer to the user by the context-scoped identity associated with context A. And in context B it should refer to the user by the context-scoped identity associated with context B. The [identity agent](#identity-agent) is responsible for performing substitution and resolution of context-scoped identities.
 
 ## Identity Agent
 
-A part of [Mee Data Network](#mee-data-network) that is responsible for managing [Connections](#connection) between [Users](#user) and [Relying Parties](#relying-party).
+A part of [Mee data network](#mee-data-network) that is responsible for data sharing between [users](#user) and [service providers](#service-provider) with respect to [context-scoped identities](#context-scoped-identity) and [capability](#capability) validation. 
+
+## Identity Context
+
+A set of [claims](#claim) about a [Person](#person) in context of relationship with [Relying Party][#relying-party], identified by a [Context-scoped identity](#context-scoped identity).
 
 ## Local App
 
@@ -53,7 +57,7 @@ To operate on the [Mee Data Network](#mee-data-network) service providers must b
 
 ## Mee Browser Extension (MBX) <a name="mee-browser extension"></a> REWRITE
 
-MBX is a browser extention that either (i) contains an embeded local agent deployed as a browser extension or (ii) communicates with a local agent on the same device. The browser extension may also include functions implementing the Global Privacy Control (https://globalprivacycontrol.org), third-party cookie deletion, and implementing [connections](#connection) to websites using web scraping/filling.
+MBX is a browser extention that either (i) contains an embedded local agent deployed as a browser extension or (ii) communicates with a local agent on the same device. The browser extension may also include functions implementing the Global Privacy Control (https://globalprivacycontrol.org), third-party cookie deletion, and implementing [connections](#connection) to websites using web scraping/filling.
 
 ## Mee Data Network (MDN) <a name="mee-data-network"></a> REWRITE
 
@@ -91,7 +95,7 @@ A communications protocol used between a [User](#user) and a [Relying Party](#re
 
 ## Relying Party (RP) <a name="relying-party"></a>
 
-A [subject](#subject) with which the [User](#user) interacts using an [Identity Agent](#identity-agent). Relying Party may be another [User](#user) or a [Service Provider](#service-provider).
+A [subject](#subject) with which the [user](#user) interacts using an [identity agent](#identity-agent). Relying party may be another [user](#user) (with [Mee identity](#mee-identity)), a [person](#person) (without [Mee identity](#mee-identity)), a [Service Provider](#service-provider) or another source of personal data.
 
 ![def-relying-party](../../images/def-relying-party.png)
 
@@ -131,11 +135,11 @@ A [subject](#subject) that represents a natural person.
 
 ### Service Provider
 
-A [corporation](#corporation) that provides a [Service Provider App](#service-provider-app) for its users.
+A [corporation](#corporation) that provides a [service provider app](#service-provider-app) to its users.
 
 ### User
 
-A [Person](#person) with [Mee Identity](#mee-identity).
+A [person](#person) with [Mee identity](#mee-identity).
  
 ## Whoness
 
