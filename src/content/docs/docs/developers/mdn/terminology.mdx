@@ -5,23 +5,23 @@ description: Terms used in the Mee documentation.
 
 ## Agent App
 
-An application that allows the user to control their [personal data](#personal-data) and [identity agent's](#identity-agent) behavior. It could be [Mee Smartwallet](#mee-smartwallet) or [Mee website](#mee-website).
+An application that allows the user to control their [personal data](#personal-data) and their [identity agent's](#identity-agent) behavior. It could be a [Mee Smartwallet](#mee-smartwallet) or a [Mee website](#mee-website).
 
 ## Agent App SDK
 
-A software development kit that provides the functionality needed to implement an [agent app](#agent-app).
+A Software Development Kit (SDK) that provides the functionality needed to implement an [agent app](#agent-app).
 
 ## Capability
 
-A reference to a set of [claims](#claim) about a [subject](#subject) together with a set of access rights that defines what operations can be performed on that set of [claims](#claim). It's unforgeable and can only be obtained through legitimate means (e.g. [delegation](#delegated-claim)).
+A reference to a set of [claims](#claim) about a [subject](#subject) together with a set of access rights that defines what operations can be performed on that set of [claims](#claim). A capability is non-repudiable and can only be obtained through legitimate means (e.g. [delegation](#delegated-claim)).
 
 ## Claim
 
-An assertion made about a [subject](#subject) in a [context](#identity-context). [Claims](#claim) have [types](#claim-type) (e.g. given-name) and values (e.g. "Fred").
+An assertion made about a [subject](#subject) in an [identity context](#identity-context). [Claims](#claim) have [types](#claim-type) (e.g. given-name) and values (e.g. "Fred").
 
 ## Claim Type
 
-A type of the [claim](#claim). It can be primitive or composite. The details of claim types are to be specified.
+A type of a [claim](#claim). It can be primitive or composite. The details of claim types are to be specified.
 
 ## Connection
 
@@ -29,7 +29,7 @@ A special type of [claim](#claim) that declares a data-sharing relationship betw
 
 ## Custodian Account
 
-Account of a [user](#user) or a [service provider](#service-provider) who hosts an [MDN node](#mdn-node) and is responsible for making the [personal data](#personal-data) of a [user](#user) available to other participants of [Mee data network](#mee-data-network) (other [MDN nodes](#mdn-node)), with respect to specified [capabilities](#capability). 
+An account of a [user](#user) or a [service provider](#service-provider) who hosts an [MDN node](#mdn-node) and is responsible for making the [personal data](#personal-data) of a [user](#user) available to other participants of [Mee data network](#mee-data-network) (other [MDN nodes](#mdn-node)), with respect to specified [capabilities](#capability). 
 
 ## Context-scoped Identity <a name="context-scoped-identity"></a>
 
@@ -55,17 +55,17 @@ An application that runs on the user's local devices (e.g. smartphone, tablet, o
 
 To operate on the [Mee data network](#mee-data-network) service providers must be authorized by the Mee Foundation and agree to the terms of the MDN license agreement. This agreement licenses the user’s [personal data](#personal-data) to the [service provider](#service-provider) and states what they can and cannot do with it. For example, it requires the [service provider's](#service-provider) apps to get opt-in consent from the user before sharing/selling their data to other entities. It also requires that the [service provider's](#service-provider) apps implement MDN protocols so they can interoperate with the [identity agent](#identity-agent).
 
+## MDN Node
+
+An app that stores [personal data](#personal-data) of the [user](#user) and implements the set of protocols required to synchronize the data over [Mee data network](#mee-data-network). It could be hosted either by the [user](#user) or by [service provider](#service-provider). If the MDN node is hosted by the [service provider](#service-provider) it must store only the data for the [identity contexts](#identity-context) associated with this [service provider](#service-provider). 
+
 ## Mee Data Network (MDN) <a name="mee-data-network"></a>
 
-Mee data network is an instance of [identity agent](#identity-agent) together with the [MDN nodes][#mdn-node] that are compatible with that specific [identity agent](#identity-agent).
+Mee data network is an instance of [identity agent](#identity-agent) together with the [MDN nodes](#mdn-node) that are compatible with that specific [identity agent](#identity-agent).
 
 ## Mee Smartwallet
 
 A [local app](#local-app) that provides [agent app](#agent-app) functionality and [MDN node](#mdn-node) functionality.
-
-## MDN Node
-
-An app that stores [personal data](#personal-data) of the [user](#user) and implements the set of protocols required to synchronize the data over [Mee data network](#mee-data-network). It could be hosted either by the [user](#user) or by [service provider](#service-provider). If the MDN node is hosted by the [service provider](#service-provider) it must store only the data for the [identity contexts](#identity-context) associated with this [service provider](#service-provider). 
 
 ## Mee-compatible
 
@@ -73,7 +73,7 @@ Mee-compatible is an adjective applied to a [service provider app](#service-prov
 
 ## Mee Identity
 
-An account in the [Mee data network](#mee-data-network) with a unique identifier, together with the information needed to prove ownership of the account (e.g. email and password, or the key pair). Mee identity is tied to the [self](#self) of the [user](#user) and is known only to the [user](#user) and to the [identity agent](#identity-agent).
+An account in the [Mee data network](#mee-data-network) with a unique identifier, together with the information needed to prove ownership of the account (e.g. email and password, or the key pair). Mee identity is tied to the [self](#self) of the [user](#user) and is known only to the [user](#user) and to their [identity agent](#identity-agent).
 
 ## Mee Website
 
@@ -127,7 +127,7 @@ A [corporation](#corporation) that provides a [service provider app](#service-pr
 
 ### User
 
-A [person](#person) with [Mee identity](#mee-identity).
+A [person](#person) with a [Mee identity](#mee-identity).
  
 ## Whoness
 
