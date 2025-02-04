@@ -1,0 +1,176 @@
+---
+title: MeeQL Query Language
+description: MeeQL Query Language
+sidebar:
+  order: 3
+---
+
+MeeQL is a query language for accessing and manipulating data in the Mee Data Network. It provides a familiar Python-like syntax while offering powerful capabilities for working with personal data across contexts.
+
+Please note that the language specification is currently in active development and is subject to change.
+
+### Basic Syntax
+
+MeeQL queries use a list comprehension-like syntax:
+
+```python
+[
+  result_expression
+  for item in source()
+  statements...
+]
+```
+
+The basic components are:
+
+- An optional result expression that defines what data to return
+- A main iterator that specifies the data source
+- Additional statements like filters, assignments, and operations
+
+### Operations
+
+#### Select
+
+Select queries retrieve data from a source. The simplest form returns all fields:
+
+```python
+[
+  user
+  for user in users()
+]
+```
+
+You can select specific fields:
+
+```python
+[
+  {
+    "name": user.name,
+    "email": user.email
+  }
+  for user in users()
+]
+```
+
+#### Filter
+
+Use `if` statements to filter results:
+
+```python
+[
+  user
+  for user in users()
+  if user.age >= 18 and user.country == "USA"
+]
+```
+
+Supported comparison operators:
+
+- `==`, `!=` - Equality comparison
+- `>`, `>=`, `<`, `<=` - Numeric comparison
+- `matches` - Regular expression matching
+- `contains` - Array/string containment
+- `exists` - Check for non-null values
+
+#### Update
+
+Update data using the `set` statement:
+
+```python
+[
+  for user in users() if user.id == "4435"
+  set user.payment_cards = [
+    {"number": "1234 5678 9012 3456", "expires": "08/30"}
+  ]
+]
+```
+
+#### Delete
+
+Remove data using the `delete` statement:
+
+```python
+[
+  for user in users() if user.id == "534622344"
+  delete user
+]
+```
+
+#### Pagination
+
+Control result size using `limit` and `offset`:
+
+```python
+[
+  user
+  for user in users()
+  offset 100
+  limit 25
+]
+```
+
+### Query Examples
+
+#### Find Users by Email
+
+```python
+[
+  user
+  for user in users()
+  if user.email == "alice@example.com"
+]
+```
+
+#### Complex Queries with Multiple Conditions
+
+```python
+[
+  {
+    "name": user.name,
+    "flight": flight.number,
+    "card": payment_card.number
+  }
+  for user in users()
+  for flight in user.flights
+    if flight.number == "UA123" and flight.date == "2024-12-25"
+  payment_card = (card for card in user.payment_cards limit 1)
+  if payment_card exists
+]
+```
+
+#### Aggregation
+
+MeeQL supports basic aggregation operations like sum, count, min, and max:
+
+```python
+[
+  {
+    "email": user.email,
+    "total_spent": sum([order.total for order in user.orders])
+  }
+  for user in users()
+]
+```
+
+### Data Types
+
+MeeQL currently supports the following data types:
+
+- Numbers (integers and floating point)
+- Strings (in double quotes)
+- Booleans (`true`, `false`)
+- `null`
+- Arrays
+- Objects (key-value pairs)
+
+### Error Handling
+
+MeeQL will provide error reporting for:
+
+- Syntax errors
+- Missing required fields
+- Invalid data types
+- Unauthorized access attempts
+- Non-existent paths
+
+The exact error format is TBD.

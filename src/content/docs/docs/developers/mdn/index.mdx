@@ -1,11 +1,44 @@
 ---
-title: Getting Started For MDN Developers
-description: Getting Started For MDN Developers
+title: Overview
+description: Overview For MDN Developers
 sidebar:
-  label: Getting Started
+  label: Overview
   order: 0
 ---
 
-We need to pour our internal docs in here. Until then, we leave you with this teaser image. BTW, all of the logos shown are purely illustrative.
+The Mee Data Network (MDN) is a protocol and infrastructure layer that enables privacy-preserving personal data management and sharing between individuals and service providers. Its primary goal is to let users maintain control of their personal information.
 
-![MDN](../../images/MDN.png)
+MDN uses a hybrid architecture combining centralized coordination with distributed data storage and direct p2p data exchange. Data relationships between participants are always isolated.
+
+Refer to the [Terminology](./terminology/) page for definitions of terms used in the MDN documentation.
+
+## How it works
+
+The participants in the Mee Data Network are either individual Users or Service Providers. Each relationship between participants is represented as an Identity Context, which contains a set of claims about the User in the context of their relationship with the Relying Party (either a Service Provider or another User).
+
+Service Providers integrate MDN into their application by implementing the Mee auth flow, hosting MDN Nodes and querying them using the Service Provider App SDK and the [MeeQL Query Language](./meeql-query-language). Users can then authorize Service Providers to access their data via their Agent App (either the Mee Website or the Mee Smartwallet).
+
+See [Core components](./core-components), [Data model](./data-model) and [MeeQL Query Language](./meeql-query-language) for details
+
+## Data synchronization
+
+We use the [Willow protocol](https://willowprotocol.org/) for data synchronization logic and [iroh](https://www.iroh.computer/) for peer-to-peer networking.
+
+See the [Data Synchronization](./data-synchronization) page for more information
+
+## Security Model
+
+Security is enforced through multiple mechanisms:
+
+
+1. Data encryption in transit and at rest
+2. Fine grained [capability-based](https://en.wikipedia.org/wiki/Capability-based_security) data access
+3. Identity scoping (each identity context has its own scoped identifiers which prevents correlation across contexts)
+4. A data synchronization mechanism which does not leak private data
+
+See [Capability system](./capability-system) and  [Data Synchronization](./data-synchronization) for details.
+
+## Additional information
+
+* All the MDN code is open-source. Feel free to browse the implementations on our [github page](https://github.com/MeeFoundation/).
+* Read the related whitepapers at [MeeFoundation/papers](https://github.com/MeeFoundation/papers)

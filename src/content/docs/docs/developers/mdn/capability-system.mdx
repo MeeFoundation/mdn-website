@@ -1,0 +1,111 @@
+---
+title: Capability system
+description: Capability system
+sidebar:
+  order: 4
+---
+
+The MDN uses a capability-based access control system that enables fine-grained control over data access and sharing. Capabilities are represented as signed tokens that grant specific permissions to MDN participants.
+
+When using the Mee website the key is short-lived and stored in-browser. In case of the Mee smartwallet the key is stored in private device storage.
+
+Service Providers may set up scenarios where users have limited control over some of their data according to the needs of the Provider's app (e.g. the User can read but not update the data). However, the ultimate control over data sharing remains with the user. 
+
+### Token Structure
+
+Each capability token contains:
+
+* `from`: Identity of the capability grantor (context-scoped)
+* `to`: Target custodian identifier
+* `sub`: Identity of whose data is being accessed (context-scoped)
+* `cap`: Capability definition
+* `exp`: Expiration timestamp
+
+The `from` and `sub` fields allow for delegation scenarios - for example, when Alice grants Bob access to Carol's data (with appropriate permissions), `from` would be Alice's identity while `sub` would be Carol's.
+
+### Capability Types
+
+#### Context Operations
+
+Controls administrative operations on Identity Contexts. Multiple operations can be combined in a single capability:
+
+* `create`: Create new contexts
+* `delete`: Remove existing contexts
+* `read_delegate_to_any`: Delegate read-only access to any participant
+* `rw_delegate_to_any`: Delegate read-write access to any participant
+* `rw_delegate_to_owner`: Delegate read-write access specifically to the context owner
+
+#### Context Data Access
+
+Controls access to specific data paths within a context. Available permissions are:
+
+* `read`: Read-only access
+* `write`: Write access
+* `delete`: Ability to delete data
+* `any`: Grants all permissions
+
+```json
+{
+    "context_id": "some-context-id",
+    "context_data_access": [
+        {
+            "paths": ["path/pattern/*"],
+            "permissions": ["read", "write", "delete"]
+        }
+    ]
+}
+```
+
+### Delegation
+
+Delegation enables controlled data sharing between different Relying Parties - for example, Provider A can request credit card data from a context scoped to Provider B. The delegation process is mediated y the User's Identity Agent and maintains identity scoping. Users must provide explicit consent for delegation to other Relying Parties, whether they're Providers or other Users.
+
+### Example Tokens
+
+#### Direct User-to-User Sharing
+
+When Alice wants to share chat data with Bob:
+
+```json
+{
+    "from": "alice-scoped-id-for-bob",
+    "to": "bob-custodian-id",
+    "sub": "alice-scoped-id-for-bob",
+    "cap": {
+        "context_id": "alice-owned-chat-ctx",
+        "context_data_access": [
+            {
+                "paths": ["chat/bob"],
+                "permissions": ["read", "write", "delete"]
+            },
+            {
+                "paths": ["chat/alice/contact_info"],
+                "permissions": ["read"]
+            }
+        ]
+    },
+    "exp": 123
+}
+```
+
+#### Provider Integration
+
+When a user connects with a Provider (like a news site):
+
+```json
+{
+    "from": "alice-newssite-scoped-id",
+    "to": "newssite-custodian-uid",
+    "sub": "alice-newssite-scoped-id",
+    "cap": {
+        "context_operations": [
+            "create",
+            "read_delegate_to_any",
+            "rw_delegate_to_owner"
+        ]
+    },
+    "exp": 123
+}
+```
+
+###
