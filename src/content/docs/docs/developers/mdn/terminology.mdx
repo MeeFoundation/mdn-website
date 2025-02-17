@@ -5,7 +5,7 @@ description: Terms used in the Mee documentation.
 
 ## Agent App
 
-An application that allows the user to control their [personal data](#personal-data) and their [identity agent's](#identity-agent) behavior. It could be a [Mee Smartwallet](#mee-smartwallet) or a [Mee website](#mee-website).
+An application that allows the user to control their [personal data](#personal-data) and their [identity agent's](#identity-agent) behavior. It could be a [Mee Smartwallet](#mee-smartwallet) or a [Mee web app](#mee-web-app).
 
 ## Agent App SDK
 
@@ -25,7 +25,7 @@ A type of a [claim](#claim). It can be primitive or composite. The details of cl
 
 ## Connection
 
-A special type of [claim](#claim) that declares a data-sharing relationship between a [user](#user) and a [relying party](#relying-party). Always belongs to some [identity context](#identity-context). 
+A special type of [claim](#claim) that declares a data-sharing relationship between a [user](#user) and a [relying party](#relying-party).
 
 ## Custodian Account
 
@@ -57,7 +57,7 @@ To operate on the [Mee data network](#mee-data-network) service providers must b
 
 ## MDN Node
 
-An app that stores [personal data](#personal-data) of the [user](#user) and implements the set of protocols required to synchronize the data over [Mee data network](#mee-data-network). It could be hosted either by the [user](#user) or by [service provider](#service-provider). If the MDN node is hosted by the [service provider](#service-provider) it must store only the data for the [identity contexts](#identity-context) associated with this [service provider](#service-provider). 
+A service that stores [personal data](#personal-data) of the [user](#user) and implements the set of protocols required to synchronize the data over [Mee data network](#mee-data-network). It could be hosted either by the [user](#user) or by [service provider](#service-provider). If the MDN node is hosted by the [service provider](#service-provider) it must store only the data for the [identity contexts](#identity-context) associated with this [service provider](#service-provider). 
 
 ## Mee Data Network (MDN) <a name="mee-data-network"></a>
 
@@ -75,7 +75,7 @@ Mee-compatible is an adjective applied to a [service provider app](#service-prov
 
 An account in the [Mee data network](#mee-data-network) with a unique identifier, together with the information needed to prove ownership of the account (e.g. email and password, or the key pair). Mee identity is tied to the [self](#self) of the [user](#user) and is known only to the [user](#user) and to their [identity agent](#identity-agent).
 
-## Mee Website
+## Mee Web App
 
 A web-based [agent app](#agent-app) that is hosted by Mee. It does not persist [personal data](#personal-data) of the [user](#user) and does not provide the functionality of [MDN node](#mdn-node).
 
