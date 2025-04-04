@@ -2,14 +2,6 @@
 import Layout from "@layouts/Layout.astro";
 import { Header, Footer } from "mee-components";
 import { header, footer } from "../config";
-import streamlinedExperience from "../../public/images/streamlined-experience.png";
-import streamlinedExperienceDark from "../../public/images/streamlined-experience-dark.png";
-import yourRightsProtected from "../../public/images/your-rights-protected.png";
-import yourRightsProtectedDark from "../../public/images/your-rights-protected-dark.png";
-import controlYourData from "../../public/images/control-your-data.png";
-import controlYourDataDark from "../../public/images/control-your-data-dark.png";
-import yourActivities from "../../public/images/your-activities.png";
-import yourActivitiesDark from "../../public/images/your-activities-dark.png";
 import smartwallet from "../../public/images/smartwallet.png";
 import smartwalletDark from "../../public/images/smartwallet-dark.png";
 import identityAgent from "../../public/images/identity-agent.png";
@@ -17,35 +9,35 @@ import identityAgentDark from "../../public/images/identity-agent-dark.png";
 
 const futures = [
   {
-    image: streamlinedExperience,
-    imageDark: streamlinedExperienceDark,
-    title: "Smoother, more streamlined experience",
+    image: "/images/personal-data-controller.svg",
+    imageDark: "/images/personal-data-controller-dark.svg",
+    title: "Private profile sharing.",
     description:
-      "Less typing and tedium - forms are automatically filled using data from Mee-compatible apps/sites.",
+      "Mee lets you control what others know about you. When you create a connection, you can chose what (if anything) to share with another person or company, and for how long.",
     class: "col-span-6",
   },
   {
-    image: yourActivities,
-    imageDark: yourActivitiesDark,
-    title: "Your activities are private–no more surveillance",
+    image: "/images/personal-data-storage.svg",
+    imageDark: "/images/personal-data-storage-dark.svg",
+    title: "Contact sharing between friends",
     description:
-      "Your data is never shared/sold with/to any other company (including data brokers).",
+      "If you’d like a friend, family member or colleague to always have your latest home address (and you to have theirs), use the Mee app to send them a connection request link. After they tap the link, Mee will open and they can accept your connection request. After they do you’ll both always have each other’s home address. Effortlessly.",
     class: "col-span-6",
   },
   {
-    image: controlYourData,
-    imageDark: controlYourDataDark,
-    title: "Control your data",
+    image: "/images/limits-app.svg",
+    imageDark: "/images/limits-app-dark.svg",
+    title: "Auto-update account profiles on websites and apps",
     description:
-      "You can exercise your legal right to control (access, edit, erase, or move) your own data wherever it is stored.",
+      "If you create a connection with a Mee-compatible company, for as long as you wish they can pull and use the latest information from your Mee. When you update it in Mee, every company you’re connected to automatically receives the updated information.",
     class: "col-span-5",
   },
   {
-    image: yourRightsProtected,
-    imageDark: yourRightsProtectedDark,
-    title: "Your rights are protected",
+    image: "/images/browser.png",
+    imageDark: "/images/browser-dark.png",
+    title: "Privacy first",
     description:
-      "The Mee Foundation acting on the user’s behalf - MDN License limits the collection, processing, and transfer of personal data to what is reasonably necessary and proportionate.",
+      "Mee puts you in control of your profile sharing connections to companies and other people. At any time, you can stop them from getting further updates, prevent them from sharing your information, and even automatically delete the data they have about you. Your information is never stored or monetized by The Mee Foundation.",
     class: "col-span-7",
   },
 ];
@@ -59,7 +51,7 @@ const identityAgentApps = [
     title: "Mee web app",
     className: "md:flex-row",
     description:
-      "On the Mee website, you can see your list of connections. Each connection represents your relationship with a Mee-compatible app or site. The website allows you to control sharing of information held by one app/site with another one. You can see the kinds of information held in each connection, you can edit some of this information, and you can choose to delete the connection and thereby delete the data held by the app/site. The Mee website acts as a “remote control” for your personal data.",
+      "Mee puts you in control of your data and allows you to share it privately with other people and companies.<br/> Nothing is ever shared without your explicit consent. The Mee Foundation never sees any of your data, and never stores any of it on our servers.",
   },
   {
     image: smartwallet,
@@ -69,13 +61,13 @@ const identityAgentApps = [
     title: "Mee Smartwallet",
     className: "md:flex-row-reverse",
     description:
-      "As an optional part of the Mee Experience, we are developing a free Mee Smartwallet app for iOS and Android (support for desktop platforms is planned). This app stores your personal data on your device(s). Similar to the Mee website, it organizes this information into a set of connections. You can see this list of connections, review the personal data involved in each, and in the case of a connection to a Mee Data Network (MDN)-compatible app/site, you can edit this data and/or delete the connection, thereby deleting your data from the app/site",
+      "<b>Bring the convenience of profile sharing to your phone.</b> Mee integrates with Apple Contacts, and automatically updates them if the your friend or colleague is a Mee user. The Mee smartwallet stores a copy of all of your information on your phone. Nothing is ever shared without your explicit consent.",
   },
 ];
 ---
 
-<Layout title="Mee Data Network">
-  <Header header={header} location="Mee Data Network" />
+<Layout title="Mee">
+  <Header header={header} location="Mee" />
   <main class="w-screen overflow-hidden">
     <article
       class="relative mt-27 flex h-full w-screen flex-col items-center justify-between gap-8 overflow-hidden md:gap-16"
@@ -89,22 +81,15 @@ const identityAgentApps = [
           <h1
             class="marker text-center text-4xl font-semibold text-grey-900 lg:text-7xl dark:text-grey-50"
           >
-            Mee Data Network
+            Mee
           </h1>
 
           <h3
             class="text text-pretty px-6 text-center text-xl text-grey-900 md:text-2xl dark:text-grey-300"
           >
-            Puts you in control of your personal data wherever it lives. Once
-            collected by an app/site, it can’t be shared with another app/site
-            without your consent. Your data is yours to use as you wish.
+            Mee puts you in control of your data and allows you to share it
+            privately with other people and companies.
           </h3>
-          <a
-            class="block w-full px-6 text-center text-xl leading-relaxed text-brand-600 underline md:text-2xl dark:text-brand-300"
-            href="/docs"
-          >
-            MDN Docs <i class="bi bi-arrow-right"></i>
-          </a>
         </div>
       </section>
       <section
@@ -122,12 +107,12 @@ const identityAgentApps = [
                 ]}
               >
                 <img
-                  src={future.image.src}
+                  src={future.image}
                   class="w-full dark:hidden"
                   alt={`${future.title}`}
                 />
                 <img
-                  src={future.imageDark.src}
+                  src={future.imageDark}
                   class="hidden w-full dark:block"
                   alt={`${future.title}`}
                 />
@@ -198,9 +183,10 @@ const identityAgentApps = [
                     <div class="flex items-center gap-2 text-left text-xl font-semibold text-grey-900 lg:text-2xl dark:text-grey-50">
                       {app.title}
                     </div>
-                    <div class="text-sm text-grey-800 lg:text-base dark:text-grey-300">
-                      {app.description}
-                    </div>
+                    <div
+                      class="text-sm text-grey-800 lg:text-base dark:text-grey-300"
+                      set:html={app.description}
+                    />
                   </div>
                   <div class="flex w-full gap-2 text-left text-base leading-relaxed text-brand-600 underline dark:text-brand-300">
                     {app.linkTitle} <i class="bi bi-arrow-right" />
